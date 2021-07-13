@@ -1,0 +1,13 @@
+collections:
+  tools:
+    output: true
+    permalink: /tools/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "tools"
+    values:
+      layout: default_page
+
+ 

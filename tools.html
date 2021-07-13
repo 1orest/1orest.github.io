@@ -1,0 +1,37 @@
+---
+title: Инструменты
+description: Упрощающие работу программы 😎
+layout: default_page
+permalink: /tools/
+---
+
+<main>
+    <div class="px-md-5">
+        <div class="w-100 px-3 px-md-4 mb-4 mb-md-5 ">
+            <h1>Инструменты</h1>
+            <p>Упрощающие работу программы 😎</p>
+        </div>
+
+        <div class="row w-100 m-0 col px-3 px-md-3">
+
+            {% for tool in site.tools %}
+
+            <div class="col-md-6 col-lg-4 p-0 mb-3 mb-md-0 p-md-2">
+                <div class="card">
+                    <a href="{{ tool.url }}" class="text-decoration-none text-dark">
+                        <img src="{{ tool.img_url }}" class="card-img-top">
+
+                        <div class="card-body">
+                            <h5 class="card-title">{{ tool.title }}</h5>
+                            <p class="card-text">{{ tool.description }}</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+</main>

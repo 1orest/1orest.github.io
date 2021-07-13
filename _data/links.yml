@@ -1,0 +1,9 @@
+navbar_links:
+
+  - title: Главная
+    description: Орест Тракало
+    url: /
+
+  - title: Инструменты
+    description: Упрощающие работу программы
+    url: /tools/
