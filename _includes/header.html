@@ -1,15 +1,18 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="https://1Orest.ru">1Orest.ru</a>
+        <a class="navbar-brand" href="{{ site.url }}">1Orest.ru</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_content" aria-controls="navbar_content" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbar_content">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0" itemscope itemtype="https://schema.org/BreadcrumbList">
+                {% assign i = 1 %}
                 {% for link in site.data.links.navbar_links %}
-                <li class="nav-item">
-                    <a title="{{ link.description }}" class="nav-link {%if page.url == link.url %}active" aria-current="page{% endif %}" href="{{ link.url }}">{{ link.title }}</a>
+                <li class="nav-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" title="{{ link.description }}" class="nav-link {%if page.url == link.url %}active" aria-current="page{% endif %}" href="{{ site.url }}{{ link.url }}"><span itemprop="name">{{ link.title }}</span></a>
+                    <meta itemprop="position" content="{{ i }}" />
                 </li>
+                {% capture i %}{{ i | plus:1 }}{% endcapture %}
                 {% endfor %}
             </ul>
 
